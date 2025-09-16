@@ -8,10 +8,10 @@ class CustomDrawer extends StatelessWidget {
 
   const CustomDrawer({
     super.key,
-    required this.username,
-    required this.onItemSelected,
-    required this.onLogout,
-    required this.currentIndex,
+    required this.username, // Nombre del usuario
+    required this.onItemSelected, // Callback al seleccionar un ítem
+    required this.onLogout, // Acción al cerrar sesión
+    required this.currentIndex, // Índice de opción activa
   });
 
   @override
@@ -20,8 +20,8 @@ class CustomDrawer extends StatelessWidget {
       child: ListView(
         padding: EdgeInsets.zero,
         children: [
-          _buildHeader(context),
-          _buildMenuItems(context),
+          _buildHeader(context), // Encabezado con avatar y datos
+          _buildMenuItems(context),// Opciones de menú
         ],
       ),
     );
@@ -29,6 +29,7 @@ class CustomDrawer extends StatelessWidget {
 
   Widget _buildHeader(BuildContext context) {
     return DrawerHeader(
+      // Fondo con color principal y un degradado
       decoration: BoxDecoration(
         color: Theme.of(context).primaryColor,
         gradient: LinearGradient(
@@ -43,6 +44,7 @@ class CustomDrawer extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          // Avatar con ícono de usuario
           const CircleAvatar(
             radius: 30,
             backgroundColor: Colors.white,
@@ -53,6 +55,8 @@ class CustomDrawer extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 15),
+
+          // Nombre del usuario
           Text(
             username,
             style: const TextStyle(
@@ -61,6 +65,8 @@ class CustomDrawer extends StatelessWidget {
               fontWeight: FontWeight.bold,
             ),
           ),
+
+          // Correo electrónico de ejemplo
           Text(
             'usuario@demo.com',
             style: TextStyle(

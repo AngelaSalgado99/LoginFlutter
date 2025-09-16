@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class BottomNavigation extends StatelessWidget {
-  final int currentIndex;
-  final Function(int) onTap;
+  final int currentIndex; // Índice de la pestaña seleccionada
+  final Function(int) onTap; // Callback al presionar un ítem
 
   const BottomNavigation({
     super.key,
@@ -13,12 +13,12 @@ class BottomNavigation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
-      currentIndex: currentIndex,
-      onTap: onTap,
-      selectedItemColor: Theme.of(context).primaryColor,
-      unselectedItemColor: Colors.grey,
-      showUnselectedLabels: true,
-      type: BottomNavigationBarType.fixed,
+      currentIndex: currentIndex, // Ítem activo
+      onTap: onTap, // Acción al pulsar
+      selectedItemColor: Theme.of(context).primaryColor, // Color del ítem seleccionado
+      unselectedItemColor: Colors.grey, // Color de ítems no seleccionados
+      showUnselectedLabels: true,  // Mostrar etiquetas de ítems no activos
+      type: BottomNavigationBarType.fixed, // Ítems fijos
       items: const [
         BottomNavigationBarItem(
           icon: Icon(Icons.home),

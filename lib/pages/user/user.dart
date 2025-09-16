@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import '../../widgets/appbar.dart';
 
+// Pantalla que muestra el perfil del usuario.
+// Recibe un [username] y un [password] como parámetros.
 class UserScreen extends StatelessWidget {
   final String username;
   final String password;
@@ -14,6 +16,7 @@ class UserScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // Barra superior personalizada con título y botón de retroceso.
       appBar:
           const CustomAppBar(title: 'Perfil de Usuario', showBackButton: true),
       body: Padding(
@@ -21,6 +24,7 @@ class UserScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            // Avatar del usuario (icono de persona dentro de un círculo).
             const Center(
               child: CircleAvatar(
                 radius: 60,
@@ -29,15 +33,20 @@ class UserScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 30),
+
+             // Tarjeta con información básica del usuario.
             Card(
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Column(
                   children: [
+                    // Nombre de usuario.
                     _buildInfoRow('Usuario:', username),
                     const SizedBox(height: 15),
+                    // Email ficticio basado en el nombre de usuario.
                     _buildInfoRow('Email:', '$username@demo.com'),
                     const SizedBox(height: 15),
+                    // Contraseña oculta con asteriscos, mostrando cantidad de caracteres.
                     _buildInfoRow('Contraseña:',
                         '${'*' * password.length} (${password.length} caracteres)'),
                   ],
@@ -45,8 +54,11 @@ class UserScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 20),
+
+            // Botón para futuras funcionalidades de edición del perfil.
             ElevatedButton(
               onPressed: () {},
+              // Aquí puedes navegar a una pantalla de edición de perfil.
               child: const Text('Editar Perfil'),
             ),
           ],
@@ -55,6 +67,8 @@ class UserScreen extends StatelessWidget {
     );
   }
 
+// Método auxiliar que construye una fila de información
+  /// con una etiqueta [label] y su valor [value].
   Widget _buildInfoRow(String label, String value) {
     return Row(
       children: [

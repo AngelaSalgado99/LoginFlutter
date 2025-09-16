@@ -7,10 +7,12 @@ class ConfigScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // AppBar personalizado en la parte superior
       appBar: const CustomAppBar(
         title: 'Configuración',
-        showBackButton: false,
+        showBackButton: false, // no muestra botón "atrás"
       ),
+      // El contenido de la pantalla puede desplazarse
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -23,6 +25,7 @@ class ConfigScreen extends StatelessWidget {
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 8),
+              // Opción: Cambiar Email
               _buildOptionCard(
                 context,
                 icon: Icons.email,
@@ -32,6 +35,7 @@ class ConfigScreen extends StatelessWidget {
                   // Navegar a pantalla cambiar email
                 },
               ),
+              // Opción: Cambiar Contraseña
               _buildOptionCard(
                 context,
                 icon: Icons.lock,
@@ -50,6 +54,8 @@ class ConfigScreen extends StatelessWidget {
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 8),
+
+              // Opción: Tema de la App
               _buildOptionCard(
                 context,
                 icon: Icons.color_lens,
@@ -59,6 +65,7 @@ class ConfigScreen extends StatelessWidget {
                   // Navegar a cambiar tema
                 },
               ),
+              // Opción: Idioma
               _buildOptionCard(
                 context,
                 icon: Icons.language,
@@ -75,6 +82,12 @@ class ConfigScreen extends StatelessWidget {
     );
   }
 
+// Método privado reutilizable para construir tarjetas de configuración.
+  /// Cada tarjeta (`Card`) muestra:
+  /// - Ícono (izquierda)
+  /// - Título y subtítulo (texto)
+  /// - Flecha indicadora (derecha)
+  /// - Acción `onTap` al tocarla
   Widget _buildOptionCard(
     BuildContext context, {
     required IconData icon,
@@ -91,7 +104,7 @@ class ConfigScreen extends StatelessWidget {
         title: Text(title, style: const TextStyle(fontWeight: FontWeight.bold)),
         subtitle: Text(subtitle),
         trailing: const Icon(Icons.arrow_forward_ios, size: 16),
-        onTap: onTap,
+        onTap: onTap, // acción al pulsar
       ),
     );
   }
